@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang='es'>
+    <head>
+        <meta charsert="utf-8"/>
+        {% load static %}
+        <link rel='stylesheet' type='text/css' href={% static 'css/styles4.css' %} />
+        <title>Dev-Junior</title>
+    </head>
+    <body class="layout">
+        <header>
+            <div id='logo'>
+                <img src={%static 'images/logo5.png' %} />
+            </div>
+            <nav id='navbar'>
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    {% for topic in topics %}
+                        <li>
+                            <a href="{% url 'topic' topic.name %}">{{topic.name}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>    
+        </header>  
+        <section id="info_bar">
+        </section>
+            {% block content %}
+                <p>Contenido del layout</p>
+            {% endblock  %}
+        <footer>
+            Blog-Dev-Junior &copy - {% now "Y" %}
+        </footer>
+    </body>
+
+
+</html>
+
+

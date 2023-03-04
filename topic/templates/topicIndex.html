@@ -1,0 +1,38 @@
+
+{% extends 'layout.html' %}
+{% load static%}
+
+{% block content %}
+<section id="central">
+    {% include 'leftSidebar.html' %}
+    <div id="content">
+        <h1 class="title">{{name}} Commands</h1>
+        {% for category in categories %}
+        <div class="table_container">
+            <div class="table_header">
+                <h4>{{category.name}}</h4>
+            </div>
+            <div class="table_margins">
+                <table class="table_code">
+                    <tbody>
+                        {% for command in commands %}
+                            {% if command.category == category.id %}
+                                <tr>
+                                    <td class="line_number">{{forloop.counter}}</td>
+                                    <td class="line_code">{{command.code}}</td>
+                                    <td class="comment">{{command.description}}</td>
+                                    <td><img class="copy_icon" src={% static 'images/copy.png' %} /></td>
+                                </tr>
+                            {% endif %}
+                        {% empty %}
+                            <p> No data </p>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% include 'rightSidebar.html' %}
+</section>
+{% endblock content %}

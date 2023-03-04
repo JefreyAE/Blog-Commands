@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load filters %}
+
+{% block content %} 
+<section id="central_home">
+    {% include 'leftSidebar.html' %}
+    <div id="content">
+        <h1 class="page_title welcome">Welcome<h1>
+        <p class="welcome_message">Sometimes when you're learning a new tool, a new language, or returning to a work environment 
+            you haven't worked in for a long time, you want a place nearby where you can take 
+            a look and refresh your memory. That's the purpose of this page, to have a place where 
+            you can look up that command or instruction that slips out of memory, and to have a basic
+            description of what it does.
+        </p>
+        <section class="icon_links">
+            <div class="icon_container">
+                <a href="/home"><img src={% static 'images/linux.png'%} /><a/>
+            </div>
+            <div class="icon_container">
+                <a href="/home"><img src={% static 'images/git4.png'%} /><a/>
+            </div>
+            <div class="icon_container">
+                <a href="/home"><img src={% static 'images/docker.png'%} /><a/>
+            </div>
+            <div class="icon_container">
+                <a href="/home"><img src={% static 'images/sql.png'%} /><a/>
+            </div>
+            {% comment %} {{"Testeando filter"|test|safe}} {% endcomment %}
+        </section>
+    </div>
+    {% include 'rightSidebar.html' %}
+</section>
+{% endblock %}
+
