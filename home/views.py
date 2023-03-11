@@ -12,7 +12,6 @@ def home(request):
 
     topics = Topic.objects.all()
     
-    
     return render(request, 'index.html', { 'topics': topics })
     
 
