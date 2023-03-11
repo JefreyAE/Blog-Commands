@@ -16,7 +16,7 @@
         <section class="icon_links">
             {% for topic in topics %}
                 <div class="icon_container">
-                    <a href="{% url 'topic' topic.name %}"><img src={% static "images/"|add:topic.name|add:".png"  %} /></a>
+                    <a href="{% url 'topic' topic.name %}"><img src={% static "images/"|add:topic.name|lower|add:".png"  %} /></a>
                 </div>
             {% endfor %}
             {% comment %} {{"Testeando filter"|test|safe}} {% endcomment %}
